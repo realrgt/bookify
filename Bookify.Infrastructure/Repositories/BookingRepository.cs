@@ -20,6 +20,7 @@ internal sealed class BookingRepository : Repository<Booking>, IBookingRepositor
             .AnyAsync(booking =>
                           booking.ApartmentId == apartment.Id &&
                           booking.Duration.Start <= duration.End &&
+                          booking.Duration.End >= duration.Start &&
                           ActiveBookingStatuses.Contains(booking.Status),
                       cancellationToken);
     }
