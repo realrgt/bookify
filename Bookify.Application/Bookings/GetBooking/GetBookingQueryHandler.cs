@@ -34,7 +34,7 @@ internal sealed class GetBookingQueryHandler : IQueryHandler<GetBookingQuery, Bo
                 total_price_currency As TotalPriceCurrency,
                 duration_start AS DurationStart,
                 duration_end AS DurationEnd,
-                created_on_utc AS CreatedOnUtc,
+                created_on_utc AS CreatedOnUtc
             FROM
                 bookings
             WHERE
