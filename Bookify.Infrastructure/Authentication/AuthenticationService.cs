@@ -18,15 +18,15 @@ internal sealed class AuthenticationService : IAuthenticationService
     public async Task<string> RegisterAsync(User user, string password, CancellationToken cancellationToken = default)
     {
         var userRepresentationModel = UserRepresentationModel.FromUser(user);
-        userRepresentationModel.Credentials = new CredentialRepresentationModel[]
-        {
+        userRepresentationModel.Credentials =
+        [
             new()
             {
                 Value = password,
                 Temporary = false,
                 Type = PasswordCredentialType
             }
-        };
+        ];
 
         var response = await _httpClient.PostAsJsonAsync(
             "users",
