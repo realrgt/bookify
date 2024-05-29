@@ -12,5 +12,6 @@ public sealed class Role
         Name = name;
     }
 
-    public ICollection<User> Users { get; set; } = [];
+    public ICollection<User> Users { get; init; } = [];
+    public ICollection<Permission> Permissions { get; init; } = [];
 }

@@ -1,0 +1,14 @@
+namespace Bookify.Domain.Users;
+
+public sealed class Permission
+{
+    public static Permission UsersRead => new(1, "users:read");
+    public int Id { get; init; }
+    public string Name { get; init; }
+
+    public Permission(int id, string name)
+    {
+        Id = id;
+        Name = name;
+    }
+}
