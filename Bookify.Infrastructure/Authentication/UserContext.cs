@@ -14,7 +14,6 @@ internal sealed class UserContext : IUserContext
         _httpContextAccessor = httpContextAccessor;
     }
 
-    // public string IdentityId => _httpContextAccessor.HttpContext?.User.FindFirst(ClaimTypes.NameIdentifier)?.Value
-    public string IdentityId => _httpContextAccessor.HttpContext?.User.Identity?.Name
+    public string IdentityId => _httpContextAccessor.HttpContext?.User.GetIdentityId()
         ?? throw new ApplicationException("User is not authenticated");
 }
