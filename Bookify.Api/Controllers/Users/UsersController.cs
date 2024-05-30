@@ -19,7 +19,8 @@ public class UsersController : ControllerBase
     }
 
     [HttpGet("me")]
-    [Authorize(Roles = Roles.Registered)]
+    // [Authorize(Roles = Roles.Registered)] // This is how you would do it with roles
+    [Authorize(Permissions.UsersRead)] // The permission already has role baked in
     public async Task<IActionResult> GetLoggedInUser(CancellationToken cancellationToken)
     {
         var query = new GetLoggedInUserQuery();
