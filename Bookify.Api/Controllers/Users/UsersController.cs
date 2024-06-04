@@ -1,6 +1,8 @@
+using Asp.Versioning;
 using Bookify.Application.Users.GetLoggedInUser;
 using Bookify.Application.Users.LoginUser;
 using Bookify.Application.Users.RegisterUser;
+using Bookify.Infrastructure.Authorization;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -8,7 +10,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace Bookify.Api.Controllers.Users;
 
 [ApiController]
-[Route("api/users")]
+[ApiVersion(ApiVersions.V1)]
+[ApiVersion(ApiVersions.V2)]
+[Route("api/v{version:apiVersion}/users")]
 public class UsersController : ControllerBase
 {
     private readonly ISender _mediator;
@@ -19,9 +23,21 @@ public class UsersController : ControllerBase
     }
 
     [HttpGet("me")]
+    [MapToApiVersion(ApiVersions.V1)]
     // [Authorize(Roles = Roles.Registered)] // This is how you would do it with roles
-    [Authorize(Permissions.UsersRead)] // The permission already has role baked in
+    [HasPermission(Permissions.UsersRead)] // The permission already has role baked in
     public async Task<IActionResult> GetLoggedInUser(CancellationToken cancellationToken)
+    {
+        var query = new GetLoggedInUserQuery();
+        var result = await _mediator.Send(query, cancellationToken);
+        
+        return Ok(result.Value);
+    }
+
+    [HttpGet("me")]
+    [MapToApiVersion(ApiVersions.V2)]
+    [HasPermission(Permissions.UsersRead)]
+    public async Task<IActionResult> GetLoggedInUserV2(CancellationToken cancellationToken)
     {
         var query = new GetLoggedInUserQuery();
         var result = await _mediator.Send(query, cancellationToken);
