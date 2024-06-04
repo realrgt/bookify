@@ -21,23 +21,23 @@ public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, 
         RequestHandlerDelegate<TResponse> next,
         CancellationToken cancellationToken)
     {
-        var name = request.GetType().Name;
+        var requestName = request.GetType().Name;
 
         try
         {
-            _logger.LogInformation("Executing request {Request}", name);
+            _logger.LogInformation("Executing request {RequestName}", requestName);
 
             var result = await next();
 
             if (result.IsSuccess)
             {
-                _logger.LogInformation("Request {Request} executed successfully", name);
+                _logger.LogInformation("Request {RequestName} executed successfully", requestName);
             } 
             else
             {
                 using (LogContext.PushProperty("Error", result.Error, true))
                 {
-                    _logger.LogError("Request {Request} processed with error", name);
+                    _logger.LogError("Request {RequestName} processed with error", requestName);
                 }
             }
 
@@ -45,7 +45,7 @@ public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, 
         }
         catch (Exception exception)
         {
-            _logger.LogError(exception, "An error occurred while executing request {Request}", name);
+            _logger.LogError(exception, "An error occurred while executing request {RequestName}", requestName);
 
             throw;
         }
