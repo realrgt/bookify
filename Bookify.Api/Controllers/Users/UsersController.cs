@@ -11,7 +11,6 @@ namespace Bookify.Api.Controllers.Users;
 
 [ApiController]
 [ApiVersion(ApiVersions.V1)]
-[ApiVersion(ApiVersions.V2)]
 [Route("api/v{version:apiVersion}/users")]
 public class UsersController : ControllerBase
 {
@@ -23,21 +22,9 @@ public class UsersController : ControllerBase
     }
 
     [HttpGet("me")]
-    [MapToApiVersion(ApiVersions.V1)]
     // [Authorize(Roles = Roles.Registered)] // This is how you would do it with roles
     [HasPermission(Permissions.UsersRead)] // The permission already has role baked in
     public async Task<IActionResult> GetLoggedInUser(CancellationToken cancellationToken)
-    {
-        var query = new GetLoggedInUserQuery();
-        var result = await _mediator.Send(query, cancellationToken);
-        
-        return Ok(result.Value);
-    }
-
-    [HttpGet("me")]
-    [MapToApiVersion(ApiVersions.V2)]
-    [HasPermission(Permissions.UsersRead)]
-    public async Task<IActionResult> GetLoggedInUserV2(CancellationToken cancellationToken)
     {
         var query = new GetLoggedInUserQuery();
         var result = await _mediator.Send(query, cancellationToken);
