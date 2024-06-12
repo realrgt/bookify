@@ -29,6 +29,7 @@ public class IntegrationTestWebAppFactory : WebApplicationFactory<Program>, IAsy
         .Build();
 
     private readonly KeycloakContainer _keycloakContainer = new KeycloakBuilder()
+        .WithImage("quay.io/keycloak/keycloak:latest")
         .WithResourceMapping(
             ".files/bookify-realm-export.json",
             "/opt/keycloak/data/import/realm.json")
