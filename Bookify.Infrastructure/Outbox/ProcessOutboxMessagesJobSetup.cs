@@ -22,6 +22,6 @@ internal sealed class ProcessOutboxMessagesJobSetup : IConfigureOptions<QuartzOp
                 trigger
                     .ForJob(jobName)
                     .WithSimpleSchedule(schedule =>
-                        schedule.WithIntervalInMinutes(_outboxOptions.IntervalInSeconds).RepeatForever()));
+                        schedule.WithIntervalInSeconds(_outboxOptions.IntervalInSeconds).RepeatForever()));
     }
 }
