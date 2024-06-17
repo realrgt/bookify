@@ -2,7 +2,7 @@ using FluentValidation;
 
 namespace Bookify.Application.Bookings.ReserveBooking;
 
-public sealed class ReserveBookingCommandValidator : AbstractValidator<ReserveBookingCommand>
+internal sealed class ReserveBookingCommandValidator : AbstractValidator<ReserveBookingCommand>
 {
     public ReserveBookingCommandValidator()
     {
