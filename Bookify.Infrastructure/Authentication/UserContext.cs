@@ -1,5 +1,3 @@
-
-using System.Security.Claims;
 using Bookify.Application.Abstractions.Authentication;
 using Microsoft.AspNetCore.Http;
 

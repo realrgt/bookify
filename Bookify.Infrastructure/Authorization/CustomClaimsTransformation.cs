@@ -17,7 +17,8 @@ internal sealed class CustomClaimsTransformation : IClaimsTransformation
 
     public async Task<ClaimsPrincipal> TransformAsync(ClaimsPrincipal principal)
     {
-        if (principal.HasClaim(claim => claim.Type == ClaimTypes.Role) &&
+        if (principal.Identity is not { IsAuthenticated: true } ||
+            principal.HasClaim(claim => claim.Type == ClaimTypes.Role) &&
             principal.HasClaim(claim => claim.Type == JwtRegisteredClaimNames.Sub))
         {
             return principal;
@@ -29,7 +30,7 @@ internal sealed class CustomClaimsTransformation : IClaimsTransformation
         var userRoles = await authorizationService.GetRolesForUserAsync(identityId);
         
         var claimsIdentity = new ClaimsIdentity();
-        claimsIdentity.AddClaim(new Claim(JwtRegisteredClaimNames.Sub, userRoles.Id.ToString()));
+        claimsIdentity.AddClaim(new Claim(JwtRegisteredClaimNames.Sub, userRoles.UserId.ToString()));
 
         foreach (var role in userRoles.Roles)
         {

@@ -15,18 +15,18 @@ internal sealed class AuthorizationService
         _cacheService = cacheService;
     }
 
-    public async Task<UserRoleResponse> GetRolesForUserAsync(string identityId)
+    public async Task<UserRolesResponse> GetRolesForUserAsync(string identityId)
     {
         var cacheKey = $"auth:roles-{identityId}";
-        var cachedRoles = await _cacheService.GetAsync<UserRoleResponse>(cacheKey);
+        var cachedRoles = await _cacheService.GetAsync<UserRolesResponse>(cacheKey);
 
         if (cachedRoles is not null) return cachedRoles;
 
         var roles = await _dbContext.Set<User>()
             .Where(user => user.IdentityId == identityId)
-            .Select(user => new UserRoleResponse
+            .Select(user => new UserRolesResponse
             {
-                Id = user.Id,
+                UserId = user.Id,
                 Roles = user.Roles.ToList()
             })
             .FirstAsync();
