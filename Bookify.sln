@@ -7,25 +7,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0C1C82EA-BA5
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9149E873-57DF-4C56-A003-6BDED370F714}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookify.Domain", "Bookify.Domain\Bookify.Domain.csproj", "{C322D8A3-5016-41E7-845E-F1513C6CECFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookify.Domain", "src\Bookify.Domain\Bookify.Domain.csproj", "{C322D8A3-5016-41E7-845E-F1513C6CECFE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookify.Application", "Bookify.Application\Bookify.Application.csproj", "{64B6F61D-0746-49AA-B0B7-0A9742F13292}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookify.Application", "src\Bookify.Application\Bookify.Application.csproj", "{64B6F61D-0746-49AA-B0B7-0A9742F13292}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookify.Infrastructure", "Bookify.Infrastructure\Bookify.Infrastructure.csproj", "{10AFF57C-8B1F-4296-ACAA-028EACD62C58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookify.Infrastructure", "src\Bookify.Infrastructure\Bookify.Infrastructure.csproj", "{10AFF57C-8B1F-4296-ACAA-028EACD62C58}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookify.Api", "Bookify.Api\Bookify.Api.csproj", "{C5418DC3-A7F4-45ED-9C0E-E16F65F466CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookify.Api", "src\Bookify.Api\Bookify.Api.csproj", "{C5418DC3-A7F4-45ED-9C0E-E16F65F466CF}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{3929A9AB-75E9-42EC-A6F0-327A4F3DC123}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookify.Domain.UnitTests", "Bookify.Domain.UnitTests\Bookify.Domain.UnitTests.csproj", "{DC062CA3-BCDD-4FD4-8601-CCD6BA715B7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookify.Domain.UnitTests", "tests\Bookify.Domain.UnitTests\Bookify.Domain.UnitTests.csproj", "{DC062CA3-BCDD-4FD4-8601-CCD6BA715B7F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookify.Application.UnitTests", "Bookify.Application.UnitTests\Bookify.Application.UnitTests.csproj", "{5CE502AA-1582-4141-94F5-C0B63EEEB71C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookify.Application.UnitTests", "tests\Bookify.Application.UnitTests\Bookify.Application.UnitTests.csproj", "{5CE502AA-1582-4141-94F5-C0B63EEEB71C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookify.Application.IntegrationTests", "Bookify.Application.IntegrationTests\Bookify.Application.IntegrationTests.csproj", "{F33B8BE8-7118-4C7D-9FA5-03B7637032C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookify.Application.IntegrationTests", "tests\Bookify.Application.IntegrationTests\Bookify.Application.IntegrationTests.csproj", "{F33B8BE8-7118-4C7D-9FA5-03B7637032C7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookify.Api.FunctionalTests", "Bookify.Api.FunctionalTests\Bookify.Api.FunctionalTests.csproj", "{3034D3A7-65F5-4304-9201-21728F64E1A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookify.Api.FunctionalTests", "tests\Bookify.Api.FunctionalTests\Bookify.Api.FunctionalTests.csproj", "{3034D3A7-65F5-4304-9201-21728F64E1A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookify.ArchitectureTests", "Bookify.ArchitectureTests\Bookify.ArchitectureTests.csproj", "{BBE2581C-E593-4A5C-B547-0F9705409DDE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookify.ArchitectureTests", "tests\Bookify.ArchitectureTests\Bookify.ArchitectureTests.csproj", "{BBE2581C-E593-4A5C-B547-0F9705409DDE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

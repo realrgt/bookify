@@ -12,13 +12,14 @@
   <ItemGroup>
     <PackageReference Include="coverlet.collector" Version="6.0.0" />
     <PackageReference Include="FluentAssertions" Version="6.12.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.6" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
-    <PackageReference Include="Testcontainers.Keycloak" Version="3.8.0" />
-    <PackageReference Include="Testcontainers.PostgreSql" Version="3.8.0" />
-    <PackageReference Include="Testcontainers.Redis" Version="3.8.0" />
+    <PackageReference Include="NetArchTest.Rules" Version="1.3.2" />
     <PackageReference Include="xunit" Version="2.5.3" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Bookify.Api\Bookify.Api.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,13 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include=".files\bookify-realm-export.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Bookify.Api\Bookify.Api.csproj" />
+    <Folder Include="Infrastructure\" />
   </ItemGroup>
 
 </Project>
