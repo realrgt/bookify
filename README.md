@@ -9,7 +9,7 @@ Clean Architecture application
 * Integration Testing (using Docker containers)
 * Functional Testing
 * Architecture Testing (using NetArchTest)
-* Structured Logging with Serilog and Seq
+* Structured Logging with Serilog & Seq
 * Distributed Caching with Redis
 * Health Checks in Clean Architecture (see {{baseUrl/health}} to see the status for the database, redis and keycloak services)
 * API Versioning
